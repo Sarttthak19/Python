@@ -1,0 +1,10 @@
+age = int(input("Enter your age: "))
+ticket = input("Do you have a ticket? (yes/no): ")
+
+if age >= 18:
+    if ticket == "yes" or ticket == "Yes" or ticket == "YES":
+        print("You can watch the movie. Enjoy!")
+    else:
+        print("You are old enough, but you need a ticket to enter.")
+else:
+    print("Sorry, this movie is 18+ only. You cannot enter.")
