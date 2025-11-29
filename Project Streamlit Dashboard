@@ -1,0 +1,59 @@
+import streamlit as st
+import pandas as pd
+import matplotlib.pyplot as plt
+
+st.title("Streamlit app for vgu")
+st.text("Welcome to our dashboard")
+st.header("I am a header")
+st.write("You can write ")
+
+name = st.text_input("Enter your name")
+age = st.number_input("Enter age")
+st.write("Your name is:", name, "Your age:", age)
+
+course = st.selectbox("Enter your course :", ["BTECH", "BCA", "MTECH", "MCA"])
+st.write("Your course is:", course)
+
+if st.button("Click ME"):
+    st.success("Clicked Button")
+
+file = st.file_uploader("Upload your file")
+if file:
+    content = file.read()
+    st.write("File uploaded successfully!!!!")
+
+data = {"Name": ["Tom", "Jack", "Pop", "Harry"], "Marks": [10, 20, 20, 10]}
+df = pd.DataFrame(data)
+st.dataframe(df)
+
+data = pd.DataFrame({
+    "Marks": [10, 20, 20, 10]
+})
+st.line_chart(data)
+st.bar_chart(data)
+
+subject = ["Python", "Java", "C++"]
+marks = [20, 10, 5]
+fig, ax = plt.subplots()
+ax.pie(marks, labels=subject)
+st.pyplot(fig)
+
+marks_slider = st.slider("Select your marks", min_value=0, max_value=100, value=50)
+st.write("Slider selected marks:", marks_slider)
+
+gender = st.radio("Select your gender:", ["Male", "Female", "Other"])
+st.write("Selected gender:", gender)
+
+agree = st.checkbox("I agree to the terms and conditions")
+if agree:
+    st.success("You agreed to the terms.")
+
+skills = st.multiselect("Select your skills:", ["Python", "Java", "C++", "SQL"])
+st.write("Selected skills:", skills)
+
+dob = st.date_input("Select your Date of Birth")
+st.write("Your Date of Birth is:", dob)
+
+st.sidebar.title("Sidebar Filters")
+city = st.sidebar.selectbox("Select your city:", ["Jaipur", "Delhi", "Mumbai"])
+st.sidebar.write("Selected city:", city)
