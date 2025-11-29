@@ -1,0 +1,63 @@
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return """
+    <h1>Sarthak Gupta</h1>
+    <h3>Computer Science Engineering Student</h3>
+
+    <h2>About Me</h2>
+    <p>I enjoy learning how technology works and love working with Python,
+    automation, and basic backend development.</p>
+
+    <h2>Skills</h2>
+    <ul>
+        <li>Python Programming</li>
+        <li>Flask (Basic Web Apps)</li>
+        <li>Data Structures & Algorithms</li>
+        <li>Automation Scripts</li>
+        <li>Basic Data Visualization</li>
+    </ul>
+
+    <h2>Projects</h2>
+    <ul>
+        <li>Mini Expense Manager (Python)</li>
+        <li>WhatsApp Automation Script</li>
+        <li>Voice Command Task Runner</li>
+        <li>Calculator & ATM Program</li>
+        <li>Graphs and Charts in Python</li>
+    </ul>
+  <h2>Education</h2>
+    <p>B.Tech CSE (2nd Year), Vivekananda Global University, Jaipur</p>
+
+    <h2>Contact</h2>
+    <p>Email: sarthak@example.com</p>
+    <p>City: Jaipur, India</p>
+    """
+
+@app.route("/api/resume")
+def resume_api():
+    json_text = """
+    {
+        "name": "Sarthak Gupta",
+        "degree": "B.Tech CSE",
+        "year": "2nd Year",
+        "university": "VGU Jaipur",
+        "skills": ["Python", "Flask", "Automation", "Data Structures", "AI Basics"],
+        "projects": [
+            "Mini Expense Manager",
+            'WhatsApp Automation Script',
+            "Voice Command Laptop Control",
+            "Calculator & ATM Program",
+            "Data Visualization Project"
+        ],
+        "city": "Jaipur"
+    }
+    """
+   
+    return json_text, 200, {"Content-Type": "application/json"}
+
+if __name__ == "__main__":
+    app.run()
