@@ -1,0 +1,24 @@
+#  Project - ATM CASH WITHDRAWAL SYSTEM
+balance = 5000
+pin = 1234
+
+attempts = 3
+
+while attempts > 0:
+    user_pin = int(input("Enter your PIN: "))
+
+    if user_pin == pin:
+        print("PIN verified!")
+        print("Your balance is:", balance)
+        amount = int(input("Enter amount to withdraw: "))
+        balance -= amount
+        print("Amount received. New balance is:", balance)
+        break
+
+    else:
+        attempts -= 1
+        print("Incorrect PIN. Attempts left:", attempts)
+
+if attempts == 0:
+    print("Your card has been blocked due to too many wrong attempts.")
+
