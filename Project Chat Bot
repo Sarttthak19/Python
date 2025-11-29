@@ -1,0 +1,11 @@
+import google.generativeai as genai
+key = "AIzaSyD0A4Wx0YHT1jcHwpXxEYQbEA"
+genai.configure(api_key=key)
+model = genai.GenerativeModel("models/gemini-2.5-flash")
+while True:
+    user_input = input("You: ")
+    if user_input.lower() == "exit":
+        print("BOT: bye bye")
+        break
+    response = model.generate_content(user_input)
+    print("BOT:", response.text)
